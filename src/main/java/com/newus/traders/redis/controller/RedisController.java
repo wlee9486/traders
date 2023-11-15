@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.newus.traders.product.dto.ProductDto;
 import com.newus.traders.redis.service.RedisService;
-import com.newus.traders.user.jwt.TokenProvider;
-import com.newus.traders.user.service.AuthService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -30,7 +28,6 @@ import lombok.RequiredArgsConstructor;
 public class RedisController {
 
         private final RedisService redisService;
-
 
         @GetMapping("/redis/weekly")
         public ResponseEntity<List<Boolean>> checkAttendance(@RequestHeader("token") String accessToken) {
@@ -60,7 +57,6 @@ public class RedisController {
 
         @GetMapping("/redis/getLikes/{id}")
         public Long getLikes(@RequestHeader("token") String accessToken, @PathVariable("id") Long productId) {
-              
 
                 return (Long) redisService.countLikes(productId);
         }

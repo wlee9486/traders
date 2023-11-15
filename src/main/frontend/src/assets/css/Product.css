@@ -1,7 +1,7 @@
 /**
  * @author hyunseul
  * @create date 2023-10-23 22:28:08
- * @modify date 2023-10-27 14:09:28
+ * @modify date 2023-10-28 13:51:33
  */
 /**
  * @author wheesunglee
@@ -149,7 +149,7 @@
   width: 100%;
   height: 185px;
   object-fit: fill;
-  background-color: #8965e0;
+  background-color: #fff;
 }
 
 .card-body:hover {

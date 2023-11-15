@@ -6,11 +6,12 @@
 
 package com.newus.traders.elasticsearch.document;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.Id;
+
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 @Document(indexName = "nori_product")
 @Getter

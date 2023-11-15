@@ -1,7 +1,7 @@
 /**
  * @author heera youn
  * @create date 2023-10-22 23:34:20
- * @modify date 2023-10-27 13:53:43
+ * @modify date 2023-10-30 11:03:23
  * @desc [포인트 이벤트 위한 랜덤요소 기능 및 FE 구현]
  */
 import React, { useEffect, useState } from "react";
@@ -16,9 +16,10 @@ const RandomEvent = () => {
   const imageArray = [newus1, newus2, newus3, newus4, newus5];
   const [buttonVisible, setButtonVisible] = useState(true);
   const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 200 });
+  const user = window.user !== null ? window.user : null;
 
   let maxX = window.innerWidth - 50;
-  let maxY = document.body.clientHeight - 500; //웹 브라우저 상단 네비바 고려
+  let maxY = document.body.clientHeight - 500;
 
   const moveButton = () => {
     const randomX = Math.random() * maxX;
@@ -29,10 +30,9 @@ const RandomEvent = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       moveButton();
-    }, 9000); // 5초(속도조절)
+    }, 9000);
 
     const handleResize = () => {
-      // 창 크기가 변경될 때 버튼 위치 다시 설정
       const newMaxX = window.innerWidth - 50;
       const newMaxY = 500 + Math.random() * (maxY - 500);
       if (maxX !== newMaxX || maxY !== newMaxY) {
@@ -57,30 +57,32 @@ const RandomEvent = () => {
     moveButton();
     Success("포인트 적립 완료!");
     setButtonVisible(false);
-    setTimeout(() => setButtonVisible(true), 1000);
+    //setTimeout(() => setButtonVisible(true), 1000);
   };
 
   const randomIndex = Math.floor(Math.random() * imageArray.length);
   const randomImage = imageArray[randomIndex];
 
   return (
-    <div className="scrollable-container">
-      {buttonVisible && (
-        <img
-          src={randomImage}
-          onClick={handleButtonClick}
-          style={{
-            zIndex: "999",
-            width: "65px",
-            height: "75px",
-            position: "absolute",
-            top: buttonPosition.y,
-            left: buttonPosition.x,
-            cursor: "pointer", // 손가락 커서로 변경
-          }}
-        />
-      )}
-    </div>
+    user && (
+      <div className="scrollable-container">
+        {buttonVisible && (
+          <img
+            src={randomImage}
+            onClick={handleButtonClick}
+            style={{
+              zIndex: "999",
+              width: "65px",
+              height: "75px",
+              position: "absolute",
+              top: buttonPosition.y,
+              left: buttonPosition.x,
+              cursor: "pointer",
+            }}
+          />
+        )}
+      </div>
+    )
   );
 };
 

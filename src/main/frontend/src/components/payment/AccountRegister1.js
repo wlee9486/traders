@@ -1,7 +1,7 @@
 /**
  * @author hyunseul
  * @create date 2023-10-23 22:31:18
- * @modify date 2023-10-27 14:54:16
+ * @modify date 2023-10-28 17:53:21
  * @desc [페이지 전체 템플릿 css]
  */
 /**
@@ -11,17 +11,16 @@
  */
 
 import React, { useState } from "react";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import { PiNumberCircleOne } from "react-icons/pi";
 import "../../assets/css/AccountRegister.css";
 import "../../assets/css/ProductRegistration.css";
-import Form from "react-bootstrap/Form";
 import "../../styles/global.css";
-import bankCode from "./bankCode";
-import axios from "axios";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { PiNumberCircleOne } from "react-icons/pi";
 import TokenRefresher from "../util/TokenRefresher";
+import bankCode from "./bankCode";
 
 const AccountRegister1 = ({ form, onText, onNext, setRanNum }) => {
   const [address, setAddress] = useState("");

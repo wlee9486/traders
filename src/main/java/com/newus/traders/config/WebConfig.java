@@ -19,16 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class WebConfig implements WebMvcConfigurer {// 어노테이션 생성
 
 	public static final String ALLOWED_METHOD_NAMES = "GET,HEAD,POST,PUT,DELETE,TRACE,OPTIONS,PATCH";
-	// private final TokenInterceptor tokenInterceptor;
 
-	// private final LoginUserArgumentResolver loginUserArgumentResolver;//의존성주입
-
-	// @Override//인터페이스 내장함수
-	// public void addArgumentResolvers(List<HandlerMethodArgumentResolver>
-	// resolvers) {
-
-	// resolvers.add(loginUserArgumentResolver); //어노테이션 생성
-	// }
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
@@ -44,8 +35,4 @@ public class WebConfig implements WebMvcConfigurer {// 어노테이션 생성
 		// maxAge - 원하는 시간만큼 request를 cashing함
 	}
 
-	// @Override
-	// public void addInterceptors(InterceptorRegistry interceptorRegistry) {
-	// interceptorRegistry.addInterceptor(tokenInterceptor).addPathPatterns("/api/**");
-	// }
 }

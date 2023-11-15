@@ -1,7 +1,7 @@
 /**
  * @author wheesunglee
  * @create date 2023-09-20 10:19:28
- * @modify date 2023-10-27 14:56:28
+ * @modify date 2023-10-30 11:07:11
  */
 /**
  * @author hyunseul
@@ -36,7 +36,7 @@ const ProductList = ({ product }) => {
             <>
               <img
                 alt=""
-                src={images[0].filepath}
+                src={`http://localhost:8080${images[0].filepath}`}
                 className="product-list-img"
                 onClick={() => history.push(`/products/${product.id}`)}
               />

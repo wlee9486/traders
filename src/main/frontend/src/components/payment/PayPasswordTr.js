@@ -1,7 +1,7 @@
 /**
  * @author ahrayi
  * @create date 2022-10-23 03:45:27
- * @modify date 2023-10-27 15:10:55
+ * @modify date 2023-10-28 17:53:53
  * @desc 페이비밀번호 입력창
  */
 
@@ -9,21 +9,27 @@
  * @author heera youn
  * @create date 2023-10-24 10:12:21
  * @modify date 2023-10-24 11:14:17
- * @desc [페이 송금 비밀번호 입력창 구현 FE + CSS]
+ * @desc 거래 자식 모달 비밀번호 입력창 구현 FE + CSS]
  */
 
 import React, { useEffect, useState } from "react";
-import PinNum from "../../assets/css/PinNum.css";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import "../../assets/css/PinNum.css";
 import { Error, Warn } from "../util/Alert";
 
-const PayPasswordTr = ({ onCloseModal, setPayPwd, transferPayment }) => {
+const PayPasswordTr = ({
+  setShowPayPasswordModal,
+  updatePayPwd,
+  transferPayment,
+}) => {
   const [pin, setPin] = useState("");
+  const history = useHistory("");
 
   useEffect(() => {
     if (pin !== "") {
-      setPayPwd(pin);
+      updatePayPwd(pin);
     }
-  }, [pin, setPayPwd]);
+  }, [pin, updatePayPwd]);
 
   const addNumber = (number) => {
     setPin((prevPin) => prevPin + number);
@@ -35,14 +41,17 @@ const PayPasswordTr = ({ onCloseModal, setPayPwd, transferPayment }) => {
 
   const submitForm = () => {
     if (pin === "") {
-      Error("Enter a PIN");
+      Error("페이비밀번호를 입력하세요");
     } else {
-      clearForm(); // 처리 후 폼 초기화
-      onCloseModal();
+      updatePayPwd(pin);
       transferPayment();
-      Warn("결제가 요청되었습니다! - " + pin);
+      clearForm();
+      setShowPayPasswordModal(false);
+      Warn("결제가 요청되었습니다!");
+      history.push("/payment");
     }
   };
+
   // 버튼 배열 생성
   const buttonLayout = [
     [1, 2, 3],
@@ -53,43 +62,33 @@ const PayPasswordTr = ({ onCloseModal, setPayPwd, transferPayment }) => {
 
   return (
     <div>
-      <form name="PINform" id="PINform" autoComplete="off">
-        <input id="PINbox" type="password" value={pin} disabled />
-        <br />
-        <div>
-          {buttonLayout.map((row, rowIndex) => (
-            <div key={rowIndex}>
-              {row.map((button, buttonIndex) => (
-                <input
-                  key={buttonIndex}
-                  type="button"
-                  className={`PINbutton ${
-                    button === "enter"
-                      ? "enter"
-                      : button === "clear"
-                      ? "clear"
-                      : ""
-                  }`}
-                  value={
-                    button === "enter"
-                      ? "enter"
-                      : button === "clear"
-                      ? "clear"
-                      : button
-                  }
-                  onClick={() =>
-                    button === "enter"
-                      ? submitForm()
-                      : button === "clear"
-                      ? clearForm()
-                      : addNumber(button)
-                  }
-                />
-              ))}
-            </div>
+      {buttonLayout.map((row, rowIndex) => (
+        <div key={rowIndex}>
+          {row.map((button, buttonIndex) => (
+            <input
+              key={buttonIndex}
+              type="button"
+              className={`PINbutton ${
+                button === "enter" ? "enter" : button === "clear" ? "clear" : ""
+              }`}
+              value={
+                button === "enter"
+                  ? "enter"
+                  : button === "clear"
+                  ? "clear"
+                  : button
+              }
+              onClick={() =>
+                button === "enter"
+                  ? submitForm()
+                  : button === "clear"
+                  ? clearForm()
+                  : addNumber(button)
+              }
+            />
           ))}
         </div>
-      </form>
+      ))}
     </div>
   );
 };

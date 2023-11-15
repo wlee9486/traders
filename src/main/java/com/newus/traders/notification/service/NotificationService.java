@@ -5,37 +5,49 @@
  */
 package com.newus.traders.notification.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.newus.traders.chat.document.ChatDto;
+import com.newus.traders.notification.dto.NotificationDto;
 import com.newus.traders.notification.entity.Notification;
 import com.newus.traders.notification.repository.NotificationRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
+import com.newus.traders.user.entity.User;
+import com.newus.traders.user.service.UserService;
 
-import java.util.List;
+import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 
 @Service
 @RequiredArgsConstructor
 public class NotificationService {
 
     private final NotificationRepository notificationRepository;
+    private final UserService userService;
 
     public void saveNotification(ChatDto chatDto) {
-        Notification notification = new Notification(chatDto);
+        User sender = userService.getUserByUsername(chatDto.getSender());
+        User receiver = userService.getUserByUsername(chatDto.getReceiver());
+
+        Notification notification = new Notification(sender, receiver, chatDto);
         notificationRepository.save(notification);
     }
 
-    public Flux<Notification> getNotificationsByReceiverAsFlux(String receiver) {
+    public Flux<NotificationDto> getNotificationsByReceiverAsFlux(String user) {
+        User receiver = userService.getUserByUsername(user);
 
         List<Notification> notifications = notificationRepository.findAllByReceiverAndIsDeliveredFalse(receiver);
+        List<NotificationDto> notificationDtos = new ArrayList<>();
+        
         for (Notification notification : notifications) {
-            System.out.println("::::::전:"+notification.isDelivered());
             notification.setIsDelivered(true);
             notificationRepository.save(notification);
-            System.out.println("::::::후:"+notification.isDelivered());
+            notificationDtos.add(new NotificationDto(notification));
         }
 
-        return Flux.fromIterable(notifications);
+        return Flux.fromIterable(notificationDtos);
     }
 
 }

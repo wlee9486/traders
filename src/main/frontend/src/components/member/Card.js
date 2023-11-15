@@ -1,9 +1,9 @@
 /**
  * @author heera youn
  * @create date 2023-10-23 23:22:21
- * @modify date 2023-10-25 13:54:54
+ * @modify date 2023-10-28 17:52:45
  */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 function Card() {
   const constrain = 200;
@@ -15,9 +15,9 @@ function Card() {
 
     function transforms(x, y, el) {
       const box = el.getBoundingClientRect();
-      const calcX = -(y - box.y - (box.height / 1)) / constrain;
-      const calcY = (x - box.x - (box.width / 1)) / constrain;
-      
+      const calcX = -(y - box.y - box.height / 1) / constrain;
+      const calcY = (x - box.x - box.width / 1) / constrain;
+
       return `perspective(50px) rotateX(${calcX}deg) rotateY(${calcY}deg)`;
     }
 
@@ -32,20 +32,18 @@ function Card() {
       setMousePosition(xy);
     }
 
-    cardLayer.style.transition = 'transform 0.3s ease-out';
+    cardLayer.style.transition = "transform 0.3s ease-out";
 
-    cardLayer.addEventListener('mousemove', handleMouseMove);
+    cardLayer.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      cardLayer.removeEventListener('mousemove', handleMouseMove);
+      cardLayer.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
     <div ref={cardRef}>
-      <div className="card">
-        {/* Your card content */}
-      </div>
+      <div className="card">{/* Your card content */}</div>
     </div>
   );
 }

@@ -1,22 +1,20 @@
 /**
  * @author heera youn
  * @create date 2023-10-22 23:31:56
- * @modify date 2023-10-27 10:48:53
+ * @modify date 2023-10-28 17:52:36
  * @desc [기능구현, FE 유효성 검사 및 Toastify, css 구현]
  */
-import React, { useState } from "react";
-import { Button, Link, Grid, Container, Typography } from "@material-ui/core";
-import { useForm, Controller } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signup } from "./SignAPIService";
-import { PiEyeBold } from "react-icons/pi";
-import { PiEyeClosedBold } from "react-icons/pi";
-import { Success, Warn, Error } from "../util/Alert";
-import { CustomTextField } from "../../styles/styles.js";
+import { Button, Container, Grid, Link, Typography } from "@material-ui/core";
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { PiEyeBold, PiEyeClosedBold } from "react-icons/pi";
+import * as yup from "yup";
 import "../../styles/global.css";
+import { CustomTextField } from "../../styles/styles.js";
 import JoinTerms from "../member/JoinTerms";
-import { ToastContainer } from "react-toastify";
+import { Error, Success, Warn } from "../util/Alert";
+import { signup } from "./SignAPIService";
 
 // ErrorMessage 컴포넌트 정의
 const ErrorMessage = ({ message }) => (

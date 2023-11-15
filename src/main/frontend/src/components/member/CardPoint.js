@@ -1,7 +1,7 @@
 /**
  * @author heera youn
  * @create date 2023-10-22 02:25:19
- * @modify date 2023-10-25 16:35:40
+ * @modify date 2023-10-31 10:39:28
  * @desc [마이페이지 TAB1.그린페이 전환/충전, 내역테이블 ]
  */
 import {
@@ -12,13 +12,12 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
-import TransferGpay from "../payment/TransferGpay";
+import "../../assets/css/payment.css";
 import TokenRefresher from "../util/TokenRefresher";
-import WithdrawGpay from "./WithdrawGpay";
 import PointCharge from "./PointCharge";
-
+import WithdrawGpay from "./WithdrawGpay";
 
 const CardPoint = (props) => {
   const [showChargeModal, setShowChargeModal] = useState(false);
@@ -27,42 +26,42 @@ const CardPoint = (props) => {
 
   const handleShowChargeModal = () => {
     setShowChargeModal(true);
-};
+  };
 
-const handleCloseChargeModal = () => {
-  setShowChargeModal(false);
-};
+  const handleCloseChargeModal = () => {
+    setShowChargeModal(false);
+  };
 
-const handleShowWithdrawModal = () => {
-  setShowWithdrawModal(true);
-};
+  const handleShowWithdrawModal = () => {
+    setShowWithdrawModal(true);
+  };
 
-const handleCloseWithdrawModal = () => {
-  setShowWithdrawModal(false);
-};
+  const handleCloseWithdrawModal = () => {
+    setShowWithdrawModal(false);
+  };
 
   useEffect(() => {
     setUser(window.user);
   }, []);
-  
-  const [data, setData] = useState({
-    nickName: '',
-    accountNum:'',
-    bankCodeStd:'',
-    payBalance:'',
-    // + 최근이용내역관련 data
-})
 
-    useEffect(() => {
-        TokenRefresher.post('http://localhost:8080/api/payment/payMgmt')
-        .then(response => {
-            setData(response.data);
-        })
-        .catch(error => {
-            console.error('데이터 가져오기 실패:', error);
-        });
-    }, []); 
-    
+  const [data, setData] = useState({
+    nickName: "",
+    accountNum: "",
+    bankCodeStd: "",
+    payBalance: "",
+    // + 최근이용내역관련 data
+  });
+
+  useEffect(() => {
+    TokenRefresher.post("http://localhost:8080/api/payment/payMgmt")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("데이터 가져오기 실패:", error);
+      });
+  }, []);
+
   if (props.tab === 0) {
     return (
       <>
@@ -72,7 +71,8 @@ const handleCloseWithdrawModal = () => {
         >
           <div class="paycard">
             <div class="cardtop">
-            {user && <scan>{user}</scan>}<br/>
+              {user && <scan>{user}</scan>}
+              <br />
               <img src="https://cdn-icons-png.flaticon.com/512/1436/1436392.png" />
             </div>
             <div class="infos">
@@ -113,7 +113,7 @@ const handleCloseWithdrawModal = () => {
           }}
         >
           <span className="titleterms" style={{ textAlign: "center" }}>
-          {user ? `🌿${user}🌿님의 그린페이` : '@@@'} 원
+            {user ? `🌿${user}🌿님의 그린페이` : "@@@"} 원
           </span>
         </Row>
 
@@ -133,9 +133,10 @@ const handleCloseWithdrawModal = () => {
             충전하기
           </button>
 
-          <button className="backButton" 
-          style={{ width: "200px" }}
-          onClick={handleShowWithdrawModal}
+          <button
+            className="backButton"
+            style={{ width: "200px" }}
+            onClick={handleShowWithdrawModal}
           >
             계좌송금
           </button>
@@ -146,9 +147,9 @@ const handleCloseWithdrawModal = () => {
           handleCloseModal={handleCloseChargeModal}
         />
         <WithdrawGpay
-        showModal={showWithdrawModal}
-        handleCloseModal={handleCloseWithdrawModal}
-      />
+          showModal={showWithdrawModal}
+          handleCloseModal={handleCloseWithdrawModal}
+        />
 
         {/* 포인트 내역 테이블 */}
         <TableContainer style={{ width: "80%", margin: "auto" }}>
@@ -160,7 +161,7 @@ const handleCloseWithdrawModal = () => {
                 </TableCell>
                 <TableCell align="center" component="th">
                   구분아이콘
-                {/* (판매/구매/충전/환급) */}
+                  {/* (판매/구매/충전/환급) */}
                 </TableCell>
                 <TableCell align="center" component="th">
                   거래일시

@@ -5,17 +5,19 @@
  */
 package com.newus.traders.image.service;
 
-import com.newus.traders.image.entity.Image;
-import com.newus.traders.image.repository.ImageRepository;
-import com.newus.traders.product.entity.Product;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.newus.traders.image.entity.Image;
+import com.newus.traders.image.repository.ImageRepository;
+import com.newus.traders.product.entity.Product;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -59,7 +61,6 @@ public class ImageService {
                 String filename = image.getFilename();
 
                 File fileToDelete = new File(projectPath, filename);
-                System.out.println(":::::::::::::::::::::지울파일:" + fileToDelete.getName());
 
                 if (fileToDelete.exists()) {
                     if (!fileToDelete.delete()) {

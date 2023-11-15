@@ -1,7 +1,7 @@
 /**
  * @author hyunseul
  * @create date 2023-10-17 16:30:32
- * @modify date 2023-10-25 16:21:50
+ * @modify date 2023-10-28 17:51:49
  */
 /**
  * @author wheesunglee
@@ -30,7 +30,7 @@ const fetchLastMessages = async (roomNum) => {
       .slice(-1)[0]
       .split(",")[5]
       .split(":");
-    
+
     if (lastMsg[1] && sender[1] && receiver) {
       const lastText = lastMsg[1].replace(/"/g, "");
 
@@ -44,7 +44,6 @@ const fetchLastMessages = async (roomNum) => {
         receiver: lastReceiver,
       };
     } else {
-      
       return null;
     }
   } catch (error) {

@@ -1,10 +1,10 @@
 /**
  * @author heera youn
  * @create date 2023-10-25 15:51:00
- * @modify date 2023-10-27 15:11:14
+ * @modify date 2023-10-28 17:54:22
  * @desc [그린페이 계좌개설 동의/비동의 항목란]
  */
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const initialTermStates = {
   term1: false,
@@ -13,15 +13,14 @@ const initialTermStates = {
   term4: false,
 };
 
-const Terms = ({onTermsChange,setSelectAllChecked,selectAllChecked}) => {
-  
+const Terms = ({ onTermsChange, setSelectAllChecked, selectAllChecked }) => {
   const [termStates, setTermStates] = useState(initialTermStates);
 
   // 개별 동의항목 상태 변경 시 '모두 동의' 체크박스 상태 업데이트
-  useEffect(()=>{
-    const allTermsChecked = Object.values(termStates).every((value)=>value);
+  useEffect(() => {
+    const allTermsChecked = Object.values(termStates).every((value) => value);
     setSelectAllChecked(allTermsChecked);
-  },[termStates]);
+  }, [termStates]);
 
   // 전체 동의 상태를 업데이트
   const toggleSelectAll = () => {
@@ -63,53 +62,52 @@ const Terms = ({onTermsChange,setSelectAllChecked,selectAllChecked}) => {
 
   return (
     <div className="basefont">
-    <form>
-      <div>
-        <input
-          className="typotitle"
-          type="checkbox"
-          name="selectall"
-          value="selectall"
-          checked={selectAllChecked}
-          onChange={toggleSelectAll}
-          required
-          style={{marginTop:'40px'}}
-        />
-        &nbsp;&nbsp;약관 모두 동의
-        <br />
-      </div>
-
-      <hr className="hr-3" />
-      {terms.map((term) => (
-        <div key={term.name}>
-          <span className="necessarytext">[필수]</span>
-          &nbsp;&nbsp;{term.label}&nbsp;
-          <a href={term.link} target="_blank">
-            상세&nbsp;
-          </a>
-          <span style={{ float: "right" }}>
-            <input
-              type="checkbox"
-              className="term-checkbox"
-              name={term.name}
-              checked={termStates[term.name]}
-              onChange={() => handleCheckboxChange(term.name)}
-            />
-            &nbsp;&nbsp;동의 &nbsp;
-
-            <input
-              type="checkbox"
-              className="term-checkbox"
-              name={term.name}
-              checked={!termStates[term.name]}
-              onChange={() => handleCheckboxChange(term.name)}
-            />
-            &nbsp;비동의
-          </span>
+      <form>
+        <div>
+          <input
+            className="typotitle"
+            type="checkbox"
+            name="selectall"
+            value="selectall"
+            checked={selectAllChecked}
+            onChange={toggleSelectAll}
+            required
+            style={{ marginTop: "40px" }}
+          />
+          &nbsp;&nbsp;약관 모두 동의
           <br />
         </div>
-      ))}
-    </form>
+
+        <hr className="hr-3" />
+        {terms.map((term) => (
+          <div key={term.name}>
+            <span className="necessarytext">[필수]</span>
+            &nbsp;&nbsp;{term.label}&nbsp;
+            <a href={term.link} target="_blank">
+              상세&nbsp;
+            </a>
+            <span style={{ float: "right" }}>
+              <input
+                type="checkbox"
+                className="term-checkbox"
+                name={term.name}
+                checked={termStates[term.name]}
+                onChange={() => handleCheckboxChange(term.name)}
+              />
+              &nbsp;&nbsp;동의 &nbsp;
+              <input
+                type="checkbox"
+                className="term-checkbox"
+                name={term.name}
+                checked={!termStates[term.name]}
+                onChange={() => handleCheckboxChange(term.name)}
+              />
+              &nbsp;비동의
+            </span>
+            <br />
+          </div>
+        ))}
+      </form>
     </div>
   );
 };

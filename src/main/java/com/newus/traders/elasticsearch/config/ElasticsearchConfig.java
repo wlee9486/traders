@@ -6,6 +6,9 @@
 
 package com.newus.traders.elasticsearch.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -25,9 +28,6 @@ import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.convert.ElasticsearchConverter;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.http.HttpHeaders;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.newus.traders.elasticsearch")
@@ -63,7 +63,7 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
                                 .setDefaultCredentialsProvider(credentialsProvider)
                                 .setDefaultHeaders(compatibilityHeaders())
 
-                                ;
+                ;
                     }
                 });
 
@@ -79,7 +79,7 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
 
     @Override
     public ElasticsearchOperations elasticsearchOperations(ElasticsearchConverter elasticsearchConverter,
-                                                           RestHighLevelClient elasticsearchClient) {
+            RestHighLevelClient elasticsearchClient) {
         return new ElasticsearchRestTemplate(elasticsearchClient());
     }
 

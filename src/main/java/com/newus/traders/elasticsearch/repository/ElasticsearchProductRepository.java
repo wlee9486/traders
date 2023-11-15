@@ -6,11 +6,12 @@
 
 package com.newus.traders.elasticsearch.repository;
 
-import com.newus.traders.elasticsearch.document.ProductDocument;
+import java.util.List;
+
 import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-import java.util.List;
+import com.newus.traders.elasticsearch.document.ProductDocument;
 
 public interface ElasticsearchProductRepository extends ElasticsearchRepository<ProductDocument, Long> {
 

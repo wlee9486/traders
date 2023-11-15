@@ -1,7 +1,7 @@
 /**
  * @author hyunseul
  * @create date 2023-10-24 19:13:49
- * @modify date 2023-10-27 14:56:02
+ * @modify date 2023-10-28 17:54:29
  * @desc [페이지 전체 템플릿 css]
  */
 /**
@@ -10,10 +10,10 @@
  * @modify date 2023-10-27 14:56:01
  */
 import React, { useEffect, useState } from "react";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import {AiOutlineCloseCircle} from 'react-icons/ai'
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const ImagePreview = ({ files, deleteFile }) => {
   const [preview, setPreview] = useState([]);
@@ -43,10 +43,15 @@ const ImagePreview = ({ files, deleteFile }) => {
       <Row key={i}>
         {preview.slice(i, i + 3).map((image, index) => (
           <Col sm={4} key={index}>
-              <div className="square-box">
-                <img src={image} width={250} height={250} className="img-pre" />
-              </div>
-             <AiOutlineCloseCircle onClick={() => deletePreview(i + index)} className="delete-btn">취소</AiOutlineCloseCircle >
+            <div className="square-box">
+              <img src={image} width={250} height={250} className="img-pre" />
+            </div>
+            <AiOutlineCloseCircle
+              onClick={() => deletePreview(i + index)}
+              className="delete-btn"
+            >
+              취소
+            </AiOutlineCloseCircle>
           </Col>
         ))}
       </Row>

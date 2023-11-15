@@ -1,7 +1,7 @@
 /**
  * @author wheesunglee
  * @create date 2023-09-20 10:21:07
- * @modify date 2023-10-27 14:56:24
+ * @modify date 2023-10-28 17:16:02
  */
 /**
  * @author hyunseul
@@ -11,7 +11,7 @@
  */
 
 import jwt_encode from "jwt-encode";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -55,6 +55,7 @@ const ProductDetails = () => {
     createdAt,
   } = data;
   const key = process.env.REACT_APP_JWT_KEY;
+  const KAKAOMAP_API_KEY = process.env.REACT_APP_KAKAOMAP_API_KEY;
 
   useEffect(() => {
     setUser(window.user);
@@ -76,6 +77,7 @@ const ProductDetails = () => {
       }
     });
   }, []);
+
   useEffect(() => {
     if (data) {
       getAddress(latitude, longitude)
@@ -113,25 +115,37 @@ const ProductDetails = () => {
     });
   };
 
-  const MapComponent = ({ latitude, longitude }) => {
-    return useMemo(
-      () => (
-        <></>
-        // <Map
-        //   className="myMap"
-        //   style={{
-        //     width: "100%",
-        //     height: "280px",
-        //     position: "relative",
-        //   }}
-        //   center={{ lat: latitude, lng: longitude }}
-        //   level={3}
-        //   draggable={false}
-        // >
-        //   <MapMarker position={{ lat: latitude, lng: longitude }}></MapMarker>
-        // </Map>
-      ),
-      [latitude, longitude]
+  const MapComponent = () => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAOMAP_API_KEY}&autoload=false`;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.kakao.maps.load(() => {
+        const container = document.getElementById("map");
+        const options = {
+          center: new window.kakao.maps.LatLng(latitude, longitude),
+          level: 3,
+          draggable: false,
+        };
+        const map = new window.kakao.maps.Map(container, options);
+        const markerPosition = new window.kakao.maps.LatLng(
+          latitude,
+          longitude
+        );
+        const marker = new window.kakao.maps.Marker({
+          position: markerPosition,
+        });
+        marker.setMap(map);
+      });
+    };
+
+    return (
+      <div
+        id="map"
+        style={{ width: "100%", height: "280px", position: "relative" }}
+      />
     );
   };
   const renderTooltip = (props) => (
@@ -315,6 +329,20 @@ const ProductDetails = () => {
                 </Col>
               </Row>
             </Row>
+          </Col>
+        </Row>
+        <hr
+          style={{
+            marginTop: "40px",
+            height: " 0",
+            margin: "1rem 0.5rem 0.5rem 0.5rem",
+            overflow: "hidden",
+            borderTop: "1px solid #000",
+          }}
+        />
+        <Row style={{ marginTop: "40px" }}>
+          <Col md={11} style={{ margin: "auto" }}>
+            <MapComponent latitude={latitude} longitude={longitude} />
           </Col>
         </Row>
         <hr style={{ color: "#000" }}></hr>

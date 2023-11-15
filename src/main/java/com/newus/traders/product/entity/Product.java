@@ -19,7 +19,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.newus.traders.image.entity.Image;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,6 +26,7 @@ import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.newus.traders.image.entity.Image;
 import com.newus.traders.product.form.ProductForm;
 import com.newus.traders.product.type.ProductStatus;
 import com.newus.traders.user.entity.User;

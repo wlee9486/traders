@@ -3,14 +3,6 @@
  * @create date 2023-09-19 08:19:20
  * @modify date 2023-10-22 13:29:10
  * @author jeongyearim
- * @create date 2023-09-26 17:33:07
- * @modify date 2023-09-26 17:33:07
- * @desc [주어진 중심 위도와 경도를 기준으로 3km 반경 내의 상품 리스트를 뽑아옵니다.]
- * @author jeongyearim
- * @create date 2023-09-26 17:33:07
- * @modify date 2023-09-26 17:33:07
- * @desc [주어진 중심 위도와 경도를 기준으로 3km 반경 내의 상품 리스트를 뽑아옵니다.]
- */
 /**
  * @author jeongyearim
  * @create date 2023-09-26 17:33:07
@@ -18,6 +10,16 @@
  * @desc [주어진 중심 위도와 경도를 기준으로 3km 반경 내의 상품 리스트를 뽑아옵니다.]
  */
 package com.newus.traders.product.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.newus.traders.chat.document.ChatDto;
 import com.newus.traders.chat.repository.ChatRepository;
@@ -33,17 +35,10 @@ import com.newus.traders.redis.service.RedisService;
 import com.newus.traders.user.entity.User;
 import com.newus.traders.user.repository.UserRepository;
 import com.newus.traders.user.service.CustomUserDetailsService;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -157,7 +152,7 @@ public class ProductService {
 
     @Transactional
     public String updateProduct(String accessToken, Long productId, ProductForm productForm,
-                                List<MultipartFile> newFiles, List<Integer> removedFiles) {
+            List<MultipartFile> newFiles, List<Integer> removedFiles) {
 
         User user = getUser(accessToken);
 
@@ -216,8 +211,6 @@ public class ProductService {
             throw new CustomException(ErrorCode.PRODUCT_NOT_DELETED);
         }
         productRepository.deleteById(productId);
-
-        redisService.deleteKey(productId);
 
         return "물품 삭제를 완료하였습니다.";
     }

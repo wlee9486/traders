@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-@EnableScheduling //예림 - 뉴스 스케쥴링(업데이트)
+@EnableScheduling
 public class TradersApplication {
 
 	public static void main(String[] args) {

@@ -13,7 +13,7 @@ const UpdateImage = ({ images, removeFile, newFiles, deleteFile }) => {
   useEffect(() => {
     prevFilesCnt = images.length;
     for (let i = 0; i < images.length; i++) {
-      imageUrlLists.push(images[i].filepath);
+      imageUrlLists.push(`http://localhost:8080${images[i].filepath}`);
     }
     for (let i = 0; i < newFiles.length; i++) {
       const currentImageUrl = URL.createObjectURL(newFiles[i]);
@@ -23,8 +23,7 @@ const UpdateImage = ({ images, removeFile, newFiles, deleteFile }) => {
     setPreview(imageUrlLists);
   }, [newFiles, images]);
 
-  console.log(prevFilesCnt, "예전목록 개수");
-  console.log("updateimage", preview);
+  
   const deletePreview = (indexToDelete) => {
     setPreview(preview.filter((_, index) => index !== indexToDelete));
     if (indexToDelete >= prevFilesCnt) {

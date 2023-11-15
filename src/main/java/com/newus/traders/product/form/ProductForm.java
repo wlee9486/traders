@@ -5,7 +5,6 @@
  */
 package com.newus.traders.product.form;
 
-
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;

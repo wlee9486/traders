@@ -1,7 +1,7 @@
 /**
  * @author wheesunglee
  * @create date 2023-09-30 13:38:26
- * @modify date 2023-10-27 12:09:58
+ * @modify date 2023-10-31 11:42:03
  */
 
 /**
@@ -175,52 +175,52 @@ const ProductRegistration = () => {
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="femaleClothing"
+              id="여성의류"
               name="category"
-              value="femaleClothing"
+              value="여성의류"
               onChange={changeInput}
             />
-            <label htmlFor="femaleClothing">여성의류</label>
+            <label htmlFor="여성의류">여성의류</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="maleClothing"
+              id="남성의류"
               name="category"
-              value="maleClothing"
+              value="남성의류"
               onChange={changeInput}
             />
-            <label htmlFor="maleClothing">남성의류</label>
+            <label htmlFor="남성의류">남성의류</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="shoes"
+              id="신발"
               name="category"
-              value="shoes"
+              value="신발"
               onChange={changeInput}
             />
-            <label htmlFor="shoes">신발</label>
+            <label htmlFor="신발">신발</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="bags"
+              id="가방/지갑"
               name="category"
-              value="bags"
+              value="가방/지갑"
               onChange={changeInput}
             />
-            <label htmlFor="bags">가방/지갑</label>
+            <label htmlFor="가방/지갑">가방/지갑</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="pet"
+              id="반려동물"
               name="category"
-              value="pet"
+              value="반려동물"
               onChange={changeInput}
             />
-            <label htmlFor="pet">반려동물</label>
+            <label htmlFor="반려동물">반려동물</label>
           </Col>
         </Row>
         <Row className="product-row-sm-1">
@@ -228,52 +228,52 @@ const ProductRegistration = () => {
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="digital"
+              id="디지털"
               name="category"
-              value="digital"
+              value="디지털"
               onChange={changeInput}
             />
-            <label htmlFor="digital">디지털</label>
+            <label htmlFor="디지털">디지털</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="appliances"
+              id="가전제품"
               name="category"
-              value="appliances"
+              value="가전제품"
               onChange={changeInput}
             />
-            <label htmlFor="appliances">가전제품</label>
+            <label htmlFor="가전제품">가전제품</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="sports"
+              id="스포츠/레저"
               name="category"
-              value="sports"
+              value="스포츠/레저"
               onChange={changeInput}
             />
-            <label htmlFor="sports">스포츠/레저</label>
+            <label htmlFor="스포츠/레저">스포츠/레저</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="culture"
+              id="도서/티켓"
               name="category"
-              value="culture"
+              value="도서/티켓"
               onChange={changeInput}
             />
-            <label htmlFor="culture">도서/티켓</label>
+            <label htmlFor="도서/티켓">도서/티켓</label>
           </Col>
           <Col sm={2} className="custom-radio">
             <input
               type="radio"
-              id="furniture"
+              id="인테리어"
               name="category"
-              value="furniture"
+              value="인테리어"
               onChange={changeInput}
             />
-            <label htmlFor="culture">인테리어</label>
+            <label htmlFor="인테리어">인테리어</label>
           </Col>
         </Row>
 

@@ -1,17 +1,22 @@
 /**
  * @author heera youn
  * @create date 2023-10-25 14:16:40
- * @modify date 2023-10-25 15:09:10
+ * @modify date 2023-10-28 17:55:26
  * @desc [로딩페이지-1]
  */
-import React from 'react';
-import '../../assets/css/Loading.css';
+import React from "react";
+import "../../assets/css/Loading.css";
 
 const LoadingLeaf = () => {
   return (
     <div className="x-reset-container">
       <div className="c-leaf">
-        <svg className="c-leaf__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg
+          className="c-leaf__icon"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
           <title>Leaf</title>
           <g className="c-leaf__icon-group">
             <path d="M0,0 L205,0 L205,135 L0,135 L0,0 Z M198.046552,5.86845094 C186.54382,2.36761966 173.540733,1.36738215 160.537645,2.36761966 C135.531707,4.86821343 113.026363,15.870826 96.5224445,32.8748637 C76.5176943,16.3709448 50.5115191,7.86892595 23.0049877,10.3695197 C16.5034439,10.8696385 10.0019001,12.3699947 4.00047502,13.870351 C2,23.3726073 1.49988125,32.3747449 2.50011875,42.37712 C6.50106879,82.3866203 33.0073627,114.394221 68.5157943,127.397308 C82.0190006,131.898377 96.5224445,133.898852 111.526007,132.898614 C118.52767,132.398496 125.529332,130.898139 132.530995,128.397546 C176.541445,113.894102 206.048452,70.883889 201.547383,23.3726073 C201.047264,17.3711823 200.047027,11.3697572 198.046552,5.86845094 Z" />

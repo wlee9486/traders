@@ -24,9 +24,6 @@ public class ProductDto {
 
     private Long id;
 
-    // 회원 entity와 연결
-    // seller;
-
     private String seller;
 
     private String name;

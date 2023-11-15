@@ -1,10 +1,10 @@
 /**
  * @author heera youn
  * @create date 2023-10-22 23:37:22
- * @modify date 2023-10-22 23:37:34
+ * @modify date 2023-10-28 17:55:23
  * @desc [전역적으로 사용하기 위한 알림 기능]
  */
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 export const Success = (alertText) => {
   toast.success(`${alertText}`, {

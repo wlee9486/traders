@@ -1,7 +1,7 @@
 /**
  * @author wheesunglee
  * @create date 2023-09-20 10:21:07
- * @modify date 2023-10-27 14:56:34
+ * @modify date 2023-10-31 11:48:40
  */
 /**
  * @author hyunseul
@@ -10,7 +10,7 @@
  * @desc [페이지 전체 템플릿 css]
  */
 import { React, useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "../../assets/css/Product.css";
 import { fetchAllProducts, getNearby } from "../../assets/js/product";
@@ -98,7 +98,7 @@ const ProductListHeader = () => {
               </button>
               <button
                 className="category-btn"
-                onClick={() => filterByCategory("반려동물용품")}
+                onClick={() => filterByCategory("반려동물")}
               >
                 반려동물
               </button>
@@ -122,13 +122,13 @@ const ProductListHeader = () => {
               </button>
               <button
                 className="category-btn"
-                onClick={() => filterByCategory("도서/티켓/문구")}
+                onClick={() => filterByCategory("도서/티켓")}
               >
                 도서/티켓
               </button>
               <button
                 className="category-btn"
-                onClick={() => filterByCategory("가구/인테리어")}
+                onClick={() => filterByCategory("인테리어")}
               >
                 인테리어
               </button>

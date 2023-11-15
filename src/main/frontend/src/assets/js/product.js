@@ -1,7 +1,7 @@
 /**
  * @author wheesunglee
  * @create date 2023-10-20 13:54:31
- * @modify date 2023-10-26 17:25:12
+ * @modify date 2023-10-30 11:21:08
  */
 
 /**
@@ -11,8 +11,8 @@
  * [현재 위치 위도, 경도 가져와서 서버로 전달]
  */
 
-import {useMemo} from "react";
-import {Error} from "../../components/util/Alert";
+import { useMemo } from "react";
+import { Error } from "../../components/util/Alert";
 import TokenRefresher from "../../components/util/TokenRefresher";
 
 const fetchAllProducts = () => {
@@ -124,7 +124,6 @@ const getNearby = async (viewNearby) => {
     console.log("현지역 보기");
     try {
       const location = await getLocation(); // Wait for getLocation to complete
-      console.log(location[0], location[1], "현위치 위도경도");
       const response = await sendCoordinatesToServer(location[0], location[1]); // Pass the latitude and longitude
       return response;
     } catch (error) {

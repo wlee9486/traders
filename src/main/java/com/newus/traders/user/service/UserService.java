@@ -5,13 +5,16 @@
  */
 package com.newus.traders.user.service;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.newus.traders.exception.CustomException;
 import com.newus.traders.exception.ErrorCode;
 import com.newus.traders.user.dto.UserResponseDTO;
+import com.newus.traders.user.entity.User;
 import com.newus.traders.user.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -37,5 +40,10 @@ public class UserService {
 
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
     }
 }

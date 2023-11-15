@@ -1,7 +1,7 @@
 /**
  * @author hyunseul
  * @create date 2023-10-23 22:31:18
- * @modify date 2023-10-27 11:57:23
+ * @modify date 2023-10-28 17:53:27
  * @desc [페이지 전체 템플릿 css]
  */
 /**
@@ -11,12 +11,12 @@
  */
 
 import React, { useState } from "react";
-import "../../assets/css/ProductRegistration.css";
-import "../../assets/css/AccountRegister.css";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { PiNumberCircleThree } from "react-icons/pi";
+import "../../assets/css/AccountRegister.css";
+import "../../assets/css/ProductRegistration.css";
 
 const AccountRegister3 = ({ postAccountInfo }) => {
   const [flag, setFlag] = useState(true);

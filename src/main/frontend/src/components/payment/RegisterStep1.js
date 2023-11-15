@@ -1,7 +1,7 @@
 /**
  * @author heera youn
  * @create date 2023-10-25 13:59:36
- * @modify date 2023-10-27 11:52:13
+ * @modify date 2023-10-28 17:54:12
  * @desc [그린페이 가입 인증 및 input FE]
  */
 /**
@@ -11,13 +11,13 @@
  * 그린페이 가입 - 1. 인증정보input 및 약관동의 처리
  */
 
+import { Container, Grid, Typography } from "@material-ui/core";
 import React, { useState } from "react";
-import Terms from "./Terms";
+import { Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { Grid, Container, Typography } from "@material-ui/core";
 import { useForm } from "react-hook-form";
 import { CustomTextField } from "../../styles/styles";
-import { Row } from "react-bootstrap";
+import Terms from "./Terms";
 
 const RegisterStep1 = ({ form, onText, onNext }) => {
   const {

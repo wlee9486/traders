@@ -7,21 +7,21 @@
 
 package com.newus.traders.user.controller;
 
-import com.newus.traders.user.dto.TokenDTO;
-import com.newus.traders.user.dto.TokenRequestDTO;
-import com.newus.traders.user.dto.UserRequestDTO;
-import com.newus.traders.user.dto.UserResponseDTO;
-import com.newus.traders.user.service.AuthService;
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import com.newus.traders.user.dto.TokenDTO;
+import com.newus.traders.user.dto.TokenRequestDTO;
+import com.newus.traders.user.dto.UserRequestDTO;
+import com.newus.traders.user.dto.UserResponseDTO;
+import com.newus.traders.user.service.AuthService;
 
-
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api")
@@ -40,11 +40,9 @@ public class AuthController {
         return ResponseEntity.ok(authService.login(userRequestDTO));
     }
 
-     @PostMapping("/auth/reissue")
+    @PostMapping("/auth/reissue")
     public ResponseEntity<TokenDTO> reissue(@RequestBody TokenRequestDTO tokenRequestDTO, HttpServletRequest request) {
         String refreshToken = request.getHeader("Refresh"); // Refresh 헤더 가져오기
         return ResponseEntity.ok(authService.reissue(tokenRequestDTO));
     }
 }
-
-

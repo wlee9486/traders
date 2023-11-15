@@ -6,9 +6,10 @@
 
 package com.newus.traders.exception;
 
+import org.springframework.http.ResponseEntity;
+
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.http.ResponseEntity;
 
 @Builder
 @Getter

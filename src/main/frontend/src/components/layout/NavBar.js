@@ -1,7 +1,7 @@
 /**
  * @author heera youn
  * @create date 2023-10-22 23:35:51
- * @modify date 2023-10-27 14:52:49
+ * @modify date 2023-10-31 09:55:49
  * @desc [로고 회전 및 메뉴명 수정]
  */
 /**
@@ -30,16 +30,26 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-menu me-auto">
-              <Nav.Link href="/products">
-                <span>구매하기</span>
-              </Nav.Link>
-              <Nav.Link href="/products/register">
-                <span>판매하기</span>
-              </Nav.Link>
+              <NavDropdown
+                title="거래"
+                id="collapsible-nav-dropdown"
+                style={{ marginRight: "0px" }}
+              >
+                <NavDropdown.Item className="item-nav" href="/products">
+                  구매하기
+                </NavDropdown.Item>
 
-              {/* <Nav.Link href="/campaign">
+                <NavDropdown.Item
+                  className="item-nav"
+                  href="/products/register"
+                >
+                  판매하기
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <Nav.Link href="/campaign">
                 <span>캠페인</span>
-              </Nav.Link> */}
+              </Nav.Link>
 
               <NavDropdown
                 title="마이페이지"

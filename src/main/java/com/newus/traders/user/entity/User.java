@@ -43,14 +43,7 @@ public class User {
     @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "activated")
-    private boolean activated;
-
-    @Column(name = "local")
-    private String local;// 관심지역
-
     @Enumerated(EnumType.STRING)
     private Authority authority;
-
 
 }

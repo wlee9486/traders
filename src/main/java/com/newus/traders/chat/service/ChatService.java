@@ -5,16 +5,18 @@
  */
 package com.newus.traders.chat.service;
 
+import java.time.LocalDateTime;
+
+import org.springframework.stereotype.Service;
+
 import com.newus.traders.chat.document.ChatDto;
 import com.newus.traders.chat.repository.ChatRepository;
 import com.newus.traders.user.service.CustomUserDetailsService;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +24,6 @@ public class ChatService {
 
     private final ChatRepository chatRepository;
     private final CustomUserDetailsService customUserDetailsService;
-
 
     // 채팅방 번호로 채팅 내용 조회
     public Flux<ChatDto> getChatMessageByRoomNum(String roomNum) {
@@ -43,7 +44,6 @@ public class ChatService {
     // 채팅방 목록 조회
     public Flux<String> getChatRoomListByUser(String accessToken) {
         String username = customUserDetailsService.getUserDetails(accessToken);
-
 
         return chatRepository.findBySenderOrReceiver(username, username)
                 .map(ChatDto::getRoomNum)

@@ -1,3 +1,9 @@
+/**
+ * @author wheesunglee
+ * @create date 2023-10-28 16:11:08
+ * @modify date 2023-10-30 11:21:22
+ */
+
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -19,23 +25,21 @@ const Elasticsearch = () => {
           console.log(errorResponse);
         }
       });
-  }, [keyword]);
-  console.log(data);
+  }, []);
+  console.log("data", data);
 
   return (
     <>
-      <Container
-        style={{ maxWidth: "1040px", marginTop: "180px", height: "1500px" }}
-      >
+      <Container style={{ width: "850px", marginTop: "180px" }}>
         <Row className="justify-content-center" style={{ margin: "0px" }}>
           <Col md="12" style={{ margin: "0px" }}>
             <Row>
               {data &&
-                data.map((product, index) => {
+                data.map((product, index) => (
                   <Col md={3} key={index} style={{ marginBottom: "15px" }}>
                     <ProductList product={product} />
-                  </Col>;
-                })}
+                  </Col>
+                ))}
             </Row>
           </Col>
         </Row>

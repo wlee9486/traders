@@ -1,7 +1,7 @@
 /**
  * @author wheesunglee
  * @create date 2023-10-22 00:24:58
- * @modify date 2023-10-27 11:49:06
+ * @modify date 2023-10-28 17:52:42
  */
 /**
  * @author hyunseul
@@ -16,8 +16,8 @@ import newus2 from "../../assets/img/newus2.png";
 import newus3 from "../../assets/img/newus3.png";
 import newus4 from "../../assets/img/newus4.png";
 import newus5 from "../../assets/img/newus5.png";
-import TokenRefresher from "../util/TokenRefresher";
 import { Error, Success } from "../util/Alert";
+import TokenRefresher from "../util/TokenRefresher";
 
 const Attendance = () => {
   const user = window.user;
@@ -64,7 +64,7 @@ const Attendance = () => {
     backgroundSize: "cover", // 이미지가 container를 완전히 덮도록 설정
     position: "relative", // 다른 요소를 위치시키기 위해 position 설정
     height: "700px",
-    marginTop: "180px"
+    marginTop: "180px",
   };
 
   return (

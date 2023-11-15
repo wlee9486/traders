@@ -2,11 +2,6 @@
  * @author heera youn
  * @create date 2023-10-25 13:50:13
  * @modify date 2023-10-25 13:50:13
- * @author wheesunglee
- * @create date 2023-10-25 13:50:08
- * @modify date 2023-10-25 13:50:08
- * refreshtoken 레디스 저장
- */
 /**
  * @author wheesunglee
  * @create date 2023-10-25 13:50:08
@@ -16,6 +11,13 @@
 
 package com.newus.traders.user.service;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.newus.traders.exception.CustomException;
 import com.newus.traders.exception.ErrorCode;
 import com.newus.traders.redis.service.RedisService;
@@ -23,18 +25,12 @@ import com.newus.traders.user.dto.TokenDTO;
 import com.newus.traders.user.dto.TokenRequestDTO;
 import com.newus.traders.user.dto.UserRequestDTO;
 import com.newus.traders.user.dto.UserResponseDTO;
-import com.newus.traders.user.entity.RefreshToken;
 import com.newus.traders.user.entity.User;
+import com.newus.traders.user.form.RefreshToken;
 import com.newus.traders.user.jwt.TokenProvider;
-import com.newus.traders.user.repository.RefreshTokenRepository;
 import com.newus.traders.user.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -43,7 +39,6 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RedisService redisService;
-    private final RefreshTokenRepository refreshTokenRepository;
     private final TokenProvider tokenProvider;
 
     @Transactional
@@ -77,7 +72,6 @@ public class AuthService {
                 .value(tokenDTO.getRefreshToken())
                 .expiration(tokenDTO.getRefreshTokenExpiresIn())
                 .build();
-        refreshTokenRepository.save(refreshToken);
         // 레디스에 저장
         redisService.saveRefreshToken(refreshToken);
 
@@ -123,6 +117,5 @@ public class AuthService {
         System.out.println("TokenDTO의 RefreshToken: " + tokenDTO.getRefreshToken());
         return tokenDTO;
     }
-
 
 }

@@ -6,15 +6,17 @@
 
 package com.newus.traders.elasticsearch.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
 import com.newus.traders.elasticsearch.document.ProductDocument;
 import com.newus.traders.elasticsearch.repository.ElasticsearchProductRepository;
 import com.newus.traders.product.dto.ProductDto;
 import com.newus.traders.product.service.ProductService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor

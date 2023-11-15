@@ -1,7 +1,7 @@
 /**
  * @author hyunseul
  * @create date 2023-10-04 13:02:02
- * @modify date 2023-10-27 14:31:44
+ * @modify date 2023-10-28 17:51:23
  */
 
 /**
@@ -41,7 +41,6 @@ const ChatBox = (props) => {
   const [savedData, setSavedData] = useState(null);
   const [showSavedData, setShowSavedData] = useState(false);
 
-  ////////////////////////////////////////
   const roomNum = useParams().roomNum;
   const sender = window.user;
 
@@ -50,14 +49,15 @@ const ChatBox = (props) => {
     fetchPrevMessage();
   }, []);
   useEffect(() => {
-    fetchProduct(productId).then((response) => {
-      if (response) {
-        setProduct(response.data);
-      }
-    });
+    if (productId) {
+      fetchProduct(productId).then((response) => {
+        if (response) {
+          setProduct(response.data);
+        }
+      });
+    }
   }, [productId]);
 
-  ///////////////////////////////////////
 
   const toggleModal = () => {
     setModalVisible((prevModalVisible) => !prevModalVisible);
@@ -202,8 +202,7 @@ const ChatBox = (props) => {
   };
 
   const handleCardClick = () => {
-    // history.push(`../../payment/transfer/${productId}`);
-    history.push("/");
+    history.push(`../../payment/transfer/${productId}`);
   };
   const fetchPrevMessage = async () => {
     try {

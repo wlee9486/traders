@@ -1,7 +1,7 @@
 /**
  * @author heera youn
  * @create date 2023-10-25 16:09:59
- * @modify date 2023-10-25 16:26:33
+ * @modify date 2023-10-28 17:53:19
  */
 /**
  * @author ahrayi
@@ -12,12 +12,12 @@
 
 import React, { useState } from "react";
 
+import { Success } from "../util/Alert";
+import TokenRefresher from "../util/TokenRefresher";
 import AccountRegister1 from "./AccountRegister1";
 import AccountRegister2 from "./AccountRegister2";
 import AccountRegister3 from "./AccountRegister3";
-import TokenRefresher from "../util/TokenRefresher";
-import Mypage from "../member/Mypage";
-import { Success } from "../util/Alert";
+import PayMgmt from "./PayMgmt";
 
 const AccountRegister = () => {
   const [step, setStep] = useState(1);
@@ -92,7 +92,7 @@ const AccountRegister = () => {
         />
       )}
       {step === 3 && <AccountRegister3 postAccountInfo={postAccountInfo} />}
-      {step === 4 && <Mypage/>}
+      {step === 4 && <PayMgmt />}
     </div>
   );
 };

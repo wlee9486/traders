@@ -10,8 +10,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.newus.traders.notification.entity.Notification;
+import com.newus.traders.user.entity.User;
 
 public interface NotificationRepository extends JpaRepository<Notification, Long> {
 
-    List<Notification> findAllByReceiverAndIsDeliveredFalse(String receiver);
+    List<Notification> findAllByReceiverAndIsDeliveredFalse(User receiver);
 }

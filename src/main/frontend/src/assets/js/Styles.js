@@ -1,11 +1,10 @@
 /*
  * @author heera youn
  * @create date 2023-10-22 23:36:29
- * @modify date 2023-10-27 15:08:04
+ * @modify date 2023-10-28 17:51:13
  * [로딩페이지 java script]
  */
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Background = styled.div`
   position: absolute;
@@ -22,6 +21,6 @@ export const Background = styled.div`
 `;
 
 export const LoadingText = styled.div`
-  font: 1rem 'Noto Sans KR';
+  font: 1rem "Noto Sans KR";
   text-align: center;
 `;

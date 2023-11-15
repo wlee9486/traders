@@ -1,47 +1,43 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import GreenPay from "./components/payment/GreenPay";
-import PayRegister from "./components/payment/PayRegister";
-import ProductDetails from "./components/product/ProductDetails";
-import ProductRegistration from "./components/product/ProductRegistration";
-
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import jwt_decode from "jwt-decode";
+import React from "react";
+import { BsArrowUpCircle } from "react-icons/bs";
+import { Route, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Notification from "./components/Notification";
 import ChatBox from "./components/chat/ChatBox";
 import ChatList from "./components/chat/ChatList";
 import Elasticsearch from "./components/elasticsearch/Elasticsearch";
 import MainFooter from "./components/layout/MainFooter";
 import MainView from "./components/layout/MainView";
 import NavBar from "./components/layout/NavBar";
+import { TopButton, scrollToTop } from "./components/layout/PublicComponents";
 import ResizedComponent from "./components/layout/ResizedComponent";
 import Login from "./components/login/Login";
 import { signout } from "./components/login/SignAPIService";
 import SignUp from "./components/login/SignUp";
 import Attendance from "./components/member/Attendance";
 import MyLikes from "./components/member/MyLikes";
-import Mypage from "./components/member/Mypage";
 import MyProducts from "./components/member/MyProducts";
+import Mypage from "./components/member/Mypage";
 import RandomEvent from "./components/member/RandomEvent";
-import Notification from "./components/Notification";
 import AccountRegister from "./components/payment/AccountRegister";
-import Confetti from "./components/payment/Confetti";
+import GreenPay from "./components/payment/GreenPay";
+import PayLanding from "./components/payment/PayLanding";
 import PayMgmt from "./components/payment/PayMgmt";
+import PayRegister from "./components/payment/PayRegister";
 import RegisterComplete from "./components/payment/RegisterComplete";
-import RegisterStep4 from "./components/payment/RegisterStep4";
 import TransferGpay from "./components/payment/TransferGpay";
+import ProductDetails from "./components/product/ProductDetails";
 import ProductListHeader from "./components/product/ProductListHeader";
+import ProductRegistration from "./components/product/ProductRegistration";
 import ProductUpdate from "./components/product/ProductUpdate";
 import CampaignList from "./components/sns/CampaignList";
 import NewsList from "./components/sns/NewsList";
 import Youtube from "./components/sns/Youtube";
-import LoadingLeaf from "./components/util/LoadingLeaf";
-import { OfficialLoading } from "./components/util/OfficialLoading";
 import PrivateRoute from "./components/util/PrivateRoute";
 import "./styles/global.css";
-import { BsArrowUpCircle } from "react-icons/bs";
-import { scrollToTop, TopButton } from "./components/layout/PublicComponents";
 
 const theme = createTheme({
   typography: {
@@ -127,31 +123,25 @@ function App() {
 
             {/* 결제 관련 */}
 
-            <Route path="/payment" exact>
-              <GreenPay />
-            </Route>
-            <Route path="/payment/gpay_register" component={PayRegister} />
-            <Route path="/payment/accnt_register" component={AccountRegister} />
-            <Route path="/payment/payMgmt" component={PayMgmt} />
-            <Route path="/pay3">
-              <RegisterStep4 />
-            </Route>
-            <Route path="/payment/transfer/:id">
-              <TransferGpay />
-            </Route>
-
-            <Route path="/progress" exact></Route>
-
-            <Route path="/loading1">
-              <LoadingLeaf />
-            </Route>
-            <Route path="/loading2">
-              <OfficialLoading />
-            </Route>
-            <Route path="/Random">
-              <RegisterComplete />
-              <Confetti />
-            </Route>
+            <Route path="/payment" component={PayLanding} exact />
+            <Route
+              path="/payment/gpay_register"
+              component={PayRegister}
+              exact
+            />
+            <Route
+              path="/payment/accnt_register"
+              component={AccountRegister}
+              exact
+            />
+            <Route path="/payment/myPay" component={PayMgmt} exact />
+            <Route path="/payment/accnt" component={RegisterComplete} exact />
+            <Route path="/payment/payIntro" component={GreenPay} exact />
+            <Route
+              path="/payment/transfer/:id"
+              component={TransferGpay}
+              exact
+            />
           </Switch>
           <BsArrowUpCircle
             onClick={scrollToTop}

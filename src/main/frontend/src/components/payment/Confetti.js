@@ -1,9 +1,9 @@
 /**
  * @author heera youn
  * @create date 2023-10-25 14:16:07
- * @modify date 2023-10-27 14:54:32
+ * @modify date 2023-10-28 17:53:32
  */
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Confetti extends Component {
   constructor(props) {
@@ -11,17 +11,28 @@ class Confetti extends Component {
     this.state = {
       confettiElements: [],
     };
-    this.confettiColors = ['#EF2964', '#00C09D', '#2D87B0', '#48485E', '#EFFF1D'];
-    this.confettiAnimations = ['slow', 'medium', 'fast'];
+    this.confettiColors = [
+      "#EF2964",
+      "#00C09D",
+      "#2D87B0",
+      "#48485E",
+      "#EFFF1D",
+    ];
+    this.confettiAnimations = ["slow", "medium", "fast"];
   }
-
 
   componentDidMount() {
     this.confettiInterval = setInterval(() => {
-      const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
-      const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
-      const confettiLeft = (Math.floor(Math.random() * window.innerWidth)) + 'px';
-      const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
+      const confettiSize = Math.floor(Math.random() * 3) + 7 + "px";
+      const confettiBackground =
+        this.confettiColors[
+          Math.floor(Math.random() * this.confettiColors.length)
+        ];
+      const confettiLeft = Math.floor(Math.random() * window.innerWidth) + "px";
+      const confettiAnimation =
+        this.confettiAnimations[
+          Math.floor(Math.random() * this.confettiAnimations.length)
+        ];
 
       const newConfetti = {
         size: confettiSize,

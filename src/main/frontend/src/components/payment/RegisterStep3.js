@@ -2,7 +2,7 @@
  * @author hyunseul
  * @email [example@mail.com]
  * @create date 2023-10-23 22:31:38
- * @modify date 2023-10-27 11:54:43
+ * @modify date 2023-10-28 17:54:17
  * @desc [페이지 템플릿 css]
  */
 /**
@@ -13,7 +13,7 @@
  */
 
 import { TextField, Typography } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "../../assets/css/AccountRegister.css";
 import "../../assets/css/PayRegister.css";

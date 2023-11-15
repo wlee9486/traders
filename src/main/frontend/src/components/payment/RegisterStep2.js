@@ -2,7 +2,7 @@
  * @author heera youn
  * @email [example@mail.com]
  * @create date 2023-10-24 13:52:03
- * @modify date 2023-10-27 11:54:05
+ * @modify date 2023-10-28 17:54:14
  * @desc [그린페이 인증 FE,CSS]
  */
 /**
@@ -12,10 +12,9 @@
  * 그린페이 가입 - 2. 문자인증 처리
  */
 
-import { Typography } from "@material-ui/core";
 import React from "react";
-import gpaymessage from "../../assets/img/gpaymessage.png";
 import { Container, Row } from "react-bootstrap";
+import gpaymessage from "../../assets/img/gpaymessage.png";
 
 const RegisterStep2 = ({
   inputAuthNum,

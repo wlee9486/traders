@@ -1,10 +1,10 @@
 /**
  * @author heera youn
  * @create date 2023-10-25 16:06:05
- * @modify date 2023-10-25 16:06:16
+ * @modify date 2023-10-28 17:53:40
 
  */
-import "bootstrap/dist/css/bootstrap.min.css"; 
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { Row } from "react-bootstrap";
 import OtpInput from "react-otp-input";
