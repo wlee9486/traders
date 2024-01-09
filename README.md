@@ -51,7 +51,7 @@
 - SSE 서버로 실시간 채팅 메시지 구현
 - MongoDB로 사용자 정보와 채팅 메시지 저장
 - 카카오 지도 API 이용 맵 구현
-  ![실시간 채팅](./images/chat.png)
+![실시간 채팅](./images/chat.png)
 ### 📌 통합검색
 - Logstash를 이용하여 Oracle DB와 연동
 - Nori tokenizer 한글 형태소 분석기 사용
@@ -59,17 +59,17 @@
 ![통합검색](./images/search.png)
 ### 📌 물품
 - JPA repository를 이용한 crud 구현
+![물품 등록](./images/products.png)
 - 카카오 지도 API 이용 맵 구현
 - Redis를 이용한 찜 기능 구현
-  ![물품 등록](./images/products.png)
-  ![물품 조회](./images/list.png)
+![물품 조회](./images/list.png)
 ### 📌 마이페이지
 - 그린페이 충전 및 송금
+![그린페이](./images/pay.png)
+- Redis를 이용한 출석체크 이벤트
+![출석체크](./images/attendance.png)
 - 찜 조회
 - 등록한 물품 조회
-- 출석체크 이벤트
-  ![그린페이](./images/pay.png)
-  ![출석체크](./images/attendance.png)
 <br/>
 <br/>
 
