@@ -16,6 +16,18 @@
 <br/>
 <br/>
 
+## 👩‍💻 멤버 구성
+| 이름            | 담당                       |
+| -------------- | -------------------------- | 
+| 이휘성(팀장)| 물품 CRUD / 통합검색 / 실시간 알림 / 찜 기능 / 출석체크 이벤트 BE / Refresh Token Redis 저장 / 랜덤 포인트 이벤트 BE|
+| 강현슬| 실시간 채팅 / 출석체크 이벤트 FE / 카카오 지도 API 이용 맵 구현 / 웹 사이트 전체 및 상세 FE + CSS|
+| 윤희라| 회원가입 및 로그인 / 마이페이지 / 랜덤 포인트 이벤트 FE / 웹 사이트 전체 및 상세 FE + CSS|
+| 이아라| Mock Server 이용한 그린페이|
+| 정예림| 캠페인|
+
+<br/>
+<br/>
+
 ## 📚 기술 스택
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -87,14 +99,7 @@ Refresh Token, 좋아요, 출석체크와 같이 빠른 속도로 데이터를 �
 <br/>
 <br/>
 
-## 👩‍💻 멤버 구성
-| 이름            | 담당                       |
-| -------------- | -------------------------- | 
-| 이휘성(팀장)| 물품 CRUD / 통합검색 / 실시간 알림 / 찜 기능 / 출석체크 이벤트 BE / Refresh Token Redis 저장 / 랜덤 포인트 이벤트 BE|
-| 강현슬| 실시간 채팅 / 출석체크 이벤트 FE / 카카오 지도 API 이용 맵 구현 / 웹 사이트 전체 및 상세 FE + CSS|
-| 윤희라| 회원가입 및 로그인 / 마이페이지 / 랜덤 포인트 이벤트 FE / 웹 사이트 전체 및 상세 FE + CSS|
-| 이아라| Mock Server 이용한 그린페이|
-| 정예림| 캠페인|
+
 
 
 
